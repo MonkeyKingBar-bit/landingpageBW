@@ -225,6 +225,25 @@ body {
    padding-top: 138px;
 }
 
+/* Slider */
+.mySwiper {
+   width: 100%;
+}
+
+.swiper {
+   width: 100%;
+   height: 100%;
+}
+
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+   color: #000;
+}
+
 .provide__item { 
    text-align: center; 
    max-width: 335px;

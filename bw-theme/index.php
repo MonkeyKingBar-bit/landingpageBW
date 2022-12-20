@@ -3,16 +3,16 @@
       <div class="container">
          <div class="about__inner">
             <?php
-            $loop = CFS()->get('card');
-            foreach($loop as $row) {
+               $loop = CFS()->get('card');
+               foreach($loop as $row) {
                ?>
-            <div class="about__item">
-               <div class="about__year"><?= $row['card_year'] ?></div>
-               <div class="about__text"><?= $row['card_text'] ?></div>
-            </div>
-            <?php
-         }
-         ?>
+               <div class="about__item">
+                  <div class="about__year"><?= $row['card_year'] ?></div>
+                  <div class="about__text"><?= $row['card_text'] ?></div>
+               </div>
+               <?php
+            }
+            ?>
          </div>
       </div>
    </div>
@@ -20,36 +20,59 @@
    <div class="team" id="team">
       <div class="container">
          <div class="block__head">
-            <h2 class="block__title">This is our team</h2>
-            <p class="block__text">We are small but effective and ...</p>
+            <h2 class="block__title"><?= CFS()->get('team_title') ?></h2>
+            <p class="block__text"><?= CFS()->get('team_description') ?></p>
          </div>
          <div class="team__inner">
-            <div class="team__item">
-               <img class="team__item-img" src="img/team1.png" alt="team1" />
-               <h3 class="team__item-title">Mark Once</h3>
-               <p class="team__item-text">Designer & Front-End Developer</p>
-               <div class="team__icon-box">
-                  <a href="#"><i class="icon-twitter"></i></a>
-                  <a href="#"><i class="icon-instagram"></i></a>
+            <div class="swiper mySwiper">
+               <div class="swiper-wrapper">
+                  <?php
+                     $loop = CFS()->get('team_card');
+                     foreach($loop as $row) {
+                  ?>
+                  <div class="swiper-slide">
+                     <div class="team__item">
+                        <img class="team__item-img" src="<?= $row['team_image'] ?>" alt="image" />
+                        <h3 class="team__item-title"><?= $row['team_name'] ?></h3>
+                        <p class="team__item-text"><?= $row['team_post'] ?></p>
+                        <div class="team__icon-box">
+                           <?php
+                              if(!empty($row['team_twitter']['url'])) {
+                                 ?>
+                                    <a href="<?= $row['team_twitter']['url'] ?>" target="<?= $row['team_twitter']['target'] ?>"><i class="icon-twitter"></i></a>
+                                 <?php
+                              }
+                           ?>
+                           <?php
+                              if(!empty($row['team_instagram']['url'])) {
+                                 ?>
+                                    <a href="<?= $row['team_instagram']['url'] ?>" target="<?= $row['team_instagram']['target'] ?>"><i class="icon-instagram"></i></a>
+                                 <?php
+                              }
+                           ?>
+                           <?php
+                              if(!empty($row['team_vk']['url'])) {
+                                 ?>
+                                    <a href="<?= $row['team_vk']['url'] ?>" target="<?= $row['team_vk']['target'] ?>"><i class="icon-vk"></i></a>
+                                 <?php
+                              }
+                           ?>
+                           <?php
+                              if(!empty($row['team_facebook']['url'])) {
+                                 ?>
+                                    <a href="<?= $row['team_facebook']['url'] ?>" target="<?= $row['team_facebook']['target'] ?>"><i class="icon-facebook"></i></a>
+                                 <?php
+                              }
+                           ?>
+                        </div>
+                     </div>
+                  </div>
+                  <?php
+               }
+               ?>
                </div>
-            </div>
-            <div class="team__item">
-               <img class="team__item-img" src="img/team2.png" alt="team2" />
-               <h3 class="team__item-title">Justin Twice</h3>
-               <p class="team__item-text">Founder & CEO</p>
-               <div class="team__icon-box">
-                  <a href="#"><i class="icon-twitter"></i></a>
-                  <a href="#"><i class="icon-instagram"></i></a>
-               </div>
-            </div>
-            <div class="team__item">
-               <img class="team__item-img" src="img/team3.png" alt="team3" />
-               <h3 class="team__item-title">Antonio Never</h3>
-               <p class="team__item-text">Someone & Somewhere</p>
-               <div class="team__icon-box">
-                  <a href="#"><i class="icon-twitter"></i></a>
-                  <a href="#"><i class="icon-instagram"></i></a>
-               </div>
+               <div class="swiper-button-next"></div>
+               <div class="swiper-button-prev"></div>
             </div>
          </div>
       </div>
