@@ -1,4 +1,4 @@
 # specteh
 
 Site on WordPress
-https://monkeykingbar-bit.github.io/site-on-wp/
+http://u141432.test-handyhost.ru/
